@@ -4,10 +4,8 @@ FROM python:3.8-slim-buster
 
 WORKDIR /timsapp-backend
 
-RUN pip3 install flask
+RUN pip3 install flask flask-cors
 
 COPY . .
-
-RUN ./scripts/seed.sh
 
 CMD [ "python3", "main.py"]

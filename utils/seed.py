@@ -1,21 +1,31 @@
 import os
 import random
 import json
+import shutil
+
+letters = "abcdefghijklmnopqrs"
 
 
 def seed(mock_data_dir, deviations_file, loads_file):
     if os.path.exists(mock_data_dir):
-        return
+        shutil.rmtree(mock_data_dir)
 
     os.mkdir(mock_data_dir)
 
     stations = []
     center_point = [48.766666, 11.433333]
-    for i in range(20):
+    for i in range(100):
+        name = (
+            random.choice(letters).upper()
+            + random.choice(letters)
+            + random.choice(letters)
+        )
         stations.append(
             {
-                "lat": center_point[0] + random.randint(-100, 100) / 10000,
-                "lon": center_point[1] + random.randint(-100, 100) / 10000,
+                "name": name,
+                "id": i,
+                "lat": center_point[0] + random.randint(-100, 100) / 4000,
+                "lon": center_point[1] + random.randint(-100, 100) / 4000,
             }
         )
 

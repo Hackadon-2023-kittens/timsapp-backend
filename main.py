@@ -2,10 +2,12 @@ from flask import Flask
 from utils.seed import seed
 from constants import mock_data_dir, deviations_file, loads_file
 import json
+from flask_cors import CORS
 
 seed(mock_data_dir, deviations_file, loads_file)
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/deviations")
