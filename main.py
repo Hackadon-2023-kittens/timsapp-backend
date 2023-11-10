@@ -1,10 +1,8 @@
 from flask import Flask
-from utils.seed import seed
-from constants import mock_data_dir, deviations_file, loads_file
-import json
+from utils.seed import seed, seed_deviations, seed_loads
 from flask_cors import CORS
 
-seed(mock_data_dir, deviations_file, loads_file)
+stations = seed()
 
 app = Flask(__name__)
 CORS(app)
@@ -12,16 +10,12 @@ CORS(app)
 
 @app.route("/deviations")
 def deviations():
-    with open(deviations_file) as f:
-        deviations = json.load(f)
-    return deviations
+    return seed_deviations(stations)
 
 
 @app.route("/loads")
 def loads():
-    with open(loads_file) as f:
-        loads = json.load(f)
-    return loads
+    return seed_loads(stations)
 
 
 if __name__ == "__main__":
