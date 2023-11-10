@@ -1,6 +1,6 @@
 import random
 
-letters = "abcdefghijklmnopqrs"
+letters = "abcdeeeeefffghhijklmmmnnnopppqrs    "
 
 
 def seed_deviations(stations):
@@ -11,6 +11,15 @@ def seed_deviations(stations):
         )
 
     return stations_deviations
+
+
+def gen_name():
+    name_len = random.randint(5, 15)
+    name = ""
+    for i in range(name_len):
+        name += random.choice(letters)
+    name = name[0].upper() + name[1:]
+    return name
 
 
 def seed_loads(stations):
@@ -25,12 +34,7 @@ def seed_stations():
     stations = []
     center_point = [48.766666, 11.433333]
     for i in range(100):
-        name = (
-            random.choice(letters).upper()
-            + random.choice(letters)
-            + random.choice(letters) * 2
-            + random.choice(letters)
-        )
+        name = gen_name()
         stations.append(
             {
                 "name": name,
