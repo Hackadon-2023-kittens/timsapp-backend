@@ -1,8 +1,8 @@
 from flask import Flask
-from utils.seed import seed, seed_deviations, seed_loads
+from utils.seed import seed_stations, seed_deviations, seed_loads
 from flask_cors import CORS
 
-stations = seed()
+stations = seed_stations()
 
 app = Flask(__name__)
 CORS(app)
