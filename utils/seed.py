@@ -18,7 +18,7 @@ def seed_loads(stations):
     for station in stations:
         stations_loads.append({**station, "load": random.randint(0, 100)})
 
-    return stations
+    return stations_loads
 
 
 def seed_stations():
