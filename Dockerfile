@@ -8,4 +8,6 @@ RUN pip3 install flask
 
 COPY . .
 
+RUN ./scripts/seed.sh
+
 CMD [ "python3", "main.py"]
