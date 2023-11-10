@@ -1,4 +1,4 @@
-# timsapp=backend
+# timsapp-backend
 
 ## How to start?
 
